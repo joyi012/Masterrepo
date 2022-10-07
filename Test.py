@@ -1,9 +1,10 @@
-def find_average_marks(marks):
-    sum_of_marks = sum(marks)
-    total_subjects = len(marks)
-    average_marks = sum_of_marks / total_subjects
-    return average_marks
+def add(num1: int, num2: int) -> int:
+    num3 = num1 + num2
 
-marks = [40, 20, 30, 32, 45, 60]
-average_marks = find_average_marks(marks)
-print("Your average marks is:", average_marks)
+    return num3
+
+
+num1, num2 = 500, 1500
+ans = add(num1, num2)
+
+print(f"The addition off {num1} and {num2} results {ans}.")
