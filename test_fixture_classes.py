@@ -6,7 +6,8 @@ import pytest
 
 @pytest.fixture(scope='class')
 def init_chrome_driver(request):
-    ch_driver = webdriver.Chrome(ChromeDriverManager().install())
+    ch_driver = webdriver.Chrome()
+    ch_driver.maximize_window()
     request.cls.driver = ch_driver
     yield
     ch_driver.close()
@@ -15,6 +16,7 @@ def init_chrome_driver(request):
 @pytest.fixture(scope='class')
 def init_ff_driver(request):
     ff_driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+    ff_driver.maximize_window()
     request.cls.driver = ff_driver
     yield
     ff_driver.close()

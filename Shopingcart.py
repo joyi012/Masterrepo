@@ -7,7 +7,7 @@ chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
 prefs = {"credentials_enable_service": False, "profile.password_manager_enabled": False}
 chrome_options.add_experimental_option("prefs", prefs)
 # driver = webdriver.Chrome()
-driver = webdriver.Chrome(executable_path="C:/Users/DELL/Downloads/chromedriver_win32/chromedriver.exe", options=chrome_options)
+driver = webdriver.Chrome()
 driver.maximize_window()
 driver.get("https://www.saucedemo.com/")
 '#Enter User login credentials'
@@ -18,13 +18,17 @@ driver.find_element(by=By.ID, value="password").send_keys("secret_sauce")
 time.sleep(5)
 driver.find_element(by=By.NAME, value="login-button").click()
 time.sleep(5)
-# Add product in cart
+# Add multiple product in product in cart
 driver.find_element(by=By.ID, value="add-to-cart-sauce-labs-backpack").click()
+driver.find_element(by=By.ID, value="add-to-cart-sauce-labs-bike-light").click()
 time.sleep(5)
 # Verify product inside cart
 driver.find_element(by=By.ID, value="shopping_cart_container").click()
+# Remove product from cart
 time.sleep(5)
+driver.find_element(by=By.ID,value="remove-sauce-labs-backpack").click()
 # Processed to check out
+time.sleep(5)
 driver.find_element(by=By.ID, value="checkout").click()
 time.sleep(5)
 # Fill Address fields

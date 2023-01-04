@@ -6,15 +6,16 @@ import random
 baseUrl = "https://reqres.in/"
 
 
-def test_successfull_registration():
+def test_successful_registration():
     path = "api/register"
     responce = requests.post(url=baseUrl + path,
                              json=json.loads('{"email": "eve.holt@reqres.in","password": "' + randomDigits(5) + '"}'))
-    responceJSon = json.loads(responce.text)
+    responcejSon = json.loads(responce.text)
     assert responce.status_code == 200
-    assert type(jsonpath.jsonpath(responceJSon, '$.token')[0]) == str
+    assert type(jsonpath.jsonpath(responcejSon, '$.token')[0]) == str
 
-def test_unsccessfull_registration():
+
+def test_unsuccessful_registration():
     path = "api/register"
     responce = requests.post(url=baseUrl + path,
                              json=json.loads('{"email": "testemail@pytest.com"}'))

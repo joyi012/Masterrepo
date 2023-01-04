@@ -8,7 +8,7 @@ l.append(5)
 l.append(7)
 print("Adding 5 and 10 in list ", l)
 
-# popping element from list
+# popping element from list(Removed some specific item from list)
 l.pop()
 print("Popped one element from list ", l)
 print()
